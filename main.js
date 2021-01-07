@@ -8,29 +8,29 @@ const scene = new THREE.Scene();
 
 // Camera setup
 const fov = 75;
-const aspect = 2
+const aspect = 2;
 const near = 0.1;
 const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0.4, 3, 5);
-
+camera.position.set(0.2, 3, 3); // x, y, z
+ 
 // Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor('#ecf0f1');
+renderer.setClearColor('#ecf0f1'); // background/scene color
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // Lighting
-const ambientLight = new THREE.AmbientLight(0x404040, 20);
+const ambientLight = new THREE.AmbientLight(0x404040, 13);
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
 directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
 const pointLightOne = new THREE.PointLight(0xc4c4c4, 5);
-pointLightOne.position.set( 0, 300, 500 );
+pointLightOne.position.set( 0, 100, 500 );
 scene.add(pointLightOne);
 
 const pointLightTwo = new THREE.PointLight(0xc4c4c4, 5);
@@ -47,13 +47,19 @@ scene.add(pointLightFour);
 
 // load 3d model
 let loader = new GLTFLoader();
-loader.load('./bottle-model.glb', (gltf) => {
+loader.load('./Clearex-500-embedded.gltf', (gltf) => {
+
     scene.add(gltf.scene);
 })
 
+
+// const loader = new THREE.ObjectLoader();
+// loader.load('./Clearex-500-embedded.json', (obj) => {
+//     console.log(obj);
+// })
+
 // Control setting
 const controls = new OrbitControls( camera, renderer.domElement );
-controls.addEventListener('change', renderer);
 
 // insert all to HTML document
 document.body.appendChild(renderer.domElement);
@@ -61,6 +67,7 @@ document.body.appendChild(renderer.domElement);
 // animation
 const animate = () => {
     requestAnimationFrame(animate);
+    controls.update();
     renderer.render(scene, camera);
 }
 
