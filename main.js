@@ -1,5 +1,6 @@
 import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
+import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
 
 // Scene setup
 const scene = new THREE.Scene();
@@ -11,26 +12,31 @@ const fov = 75;
 const near = 0.1;
 const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, near, far);
-camera.position.set(0, 2, 4);
+camera.position.set(0, 3, 5);
 
 // Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor('#ecf0f1');
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// Light
-const ambientLight = new THREE.AmbientLight(0x404040, 15);
+// Lighting
+const ambientLight = new THREE.AmbientLight(0x404040, 18);
 scene.add(ambientLight);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
 directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// // load 3d model
+// load 3d model
 let loader = new GLTFLoader();
 loader.load('./bottle-model.glb', (gltf) => {
     scene.add(gltf.scene);
 })
+
+// Control setting
+const controls = new OrbitControls( camera, renderer.domElement );
+console.log(controls);
 
 // insert all to HTML document
 document.body.appendChild(renderer.domElement);
