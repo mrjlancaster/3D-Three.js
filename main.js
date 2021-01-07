@@ -23,21 +23,33 @@ renderer.setPixelRatio(window.devicePixelRatio);
 // Lighting
 const ambientLight = new THREE.AmbientLight(0x404040, 20);
 scene.add(ambientLight);
+
 const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
 directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-const pointLight = new THREE.PointLight( 0xff0000, 1, 100 );
-pointLight.position.set( 0, 300, 500 );
-scene.add(pointLight);
+const pointLightOne = new THREE.PointLight(0xc4c4c4, 5);
+pointLightOne.position.set( 0, 300, 500 );
+scene.add(pointLightOne);
+
+const pointLightTwo = new THREE.PointLight(0xc4c4c4, 5);
+pointLightTwo.position.set(500,100,0);
+scene.add(pointLightTwo);
+
+const pointLightThree = new THREE.PointLight(0xc4c4c4, 5);
+pointLightThree.position.set(0,100,-500);
+scene.add(pointLightThree);
+
+const pointLightFour = new THREE.PointLight(0xc4c4c4, 5);
+pointLightFour.position.set(-500,300,500);
+scene.add(pointLightFour);
 
 // load 3d model
 let loader = new GLTFLoader();
 loader.load('./bottle-model.glb', (gltf) => {
     scene.add(gltf.scene);
 })
-
 
 // Control setting
 const controls = new OrbitControls( camera, renderer.domElement );
