@@ -41,6 +41,7 @@ loader.load('./bottle-model.glb', (gltf) => {
 
 // Control setting
 const controls = new OrbitControls( camera, renderer.domElement );
+controls.addEventListener('change', renderer);
 
 // insert all to HTML document
 document.body.appendChild(renderer.domElement);
