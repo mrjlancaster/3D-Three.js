@@ -23,8 +23,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // Lighting
-// const ambientLight = new THREE.AmbientLight(0x404040, 1);
-// scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0x404040, 1);
+scene.add(ambientLight);
 
 const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
 scene.add(hemiLight);
@@ -38,10 +38,10 @@ spotLight.shadow.mapSize.width = 1024 * 4;
 spotLight.shadow.mapSize.height = 1024 * 4;
 scene.add(spotLight);
 
-// const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
-// directionalLight.position.set(0, 1, 0);
-// directionalLight.castShadow = true;
-// scene.add(directionalLight);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
+directionalLight.position.set(0, 1, 0);
+directionalLight.castShadow = true;
+scene.add(directionalLight);
 
 // const pointLightOne = new THREE.PointLight(0xc4c4c4, 5);
 // pointLightOne.position.set( 0, 100, 500 );
@@ -75,7 +75,8 @@ loader.load('complete_model.glb', (gltf) => {
         }
     })
 
-    console.log(model);
+    console.log(model.children);
+
 
     // scene.add(gltf.scene);
     scene.add(model)
