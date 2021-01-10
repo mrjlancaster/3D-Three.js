@@ -9,7 +9,7 @@ scene.background = new THREE.Color(0xffffff);
 scene.add(new THREE.AxesHelper(500))
 
 // Camera setup
-const fov = 90;
+const fov = 40; // camera proximity
 const aspect = 2;
 const near = 0.1;
 const far = 1000;
@@ -23,7 +23,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // LIGHTS SETTINGS
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
 scene.add(ambientLight);
 
 // const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
@@ -45,21 +45,21 @@ directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// const pointLightOne = new THREE.PointLight(0xc4c4c4, 1);
-// pointLightOne.position.set( 0, 100, 500 );
-// scene.add(pointLightOne);
+const pointLightOne = new THREE.PointLight(0xc4c4c4, 1);
+pointLightOne.position.set( 0, 100, 500 );
+scene.add(pointLightOne);
 
-// const pointLightTwo = new THREE.PointLight(0xc4c4c4, 1);
-// pointLightTwo.position.set(500,100,0);
-// scene.add(pointLightTwo);
+const pointLightTwo = new THREE.PointLight(0xc4c4c4, 1);
+pointLightTwo.position.set(500,100,0);
+scene.add(pointLightTwo);
 
-// const pointLightThree = new THREE.PointLight(0xc4c4c4, 1);
-// pointLightThree.position.set(0,100,-500);
-// scene.add(pointLightThree);
+const pointLightThree = new THREE.PointLight(0xc4c4c4, 1);
+pointLightThree.position.set(0,100,-500);
+scene.add(pointLightThree);
 
-// const pointLightFour = new THREE.PointLight(0xc4c4c4, 1);
-// pointLightFour.position.set(-500,300,500);
-// scene.add(pointLightFour);
+const pointLightFour = new THREE.PointLight(0xc4c4c4, 1);
+pointLightFour.position.set(-500,300,500);
+scene.add(pointLightFour);
 
 // MODEL SETTINGS
 let loader = new GLTFLoader();
@@ -79,10 +79,13 @@ loader.load('complete_model.glb', (gltf) => {
 
     console.log(model.children);
 
-    // Make bottle transparent
+    // Change bottle transparency
     model.children[2].material.transparent = true;
-    model.children[2].material.opacity = 0.75;
+    model.children[2].material.opacity = 0.65;
 
+    // Change liquid transparency
+    model.children[3].material.transparent = true;
+    model.children[3].material.opacity = 0.70;
 
     // scene.add(gltf.scene);
     scene.add(model)
