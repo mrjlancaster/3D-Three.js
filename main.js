@@ -22,7 +22,7 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.setClearColor('#ecf0f1'); // background/scene color
 renderer.setPixelRatio(window.devicePixelRatio);
 
-// Lighting
+// LIGHTS SETTINGS
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
@@ -45,19 +45,19 @@ directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-const pointLightOne = new THREE.PointLight(0xc4c4c4, 1);
-pointLightOne.position.set( 0, 100, 500 );
-scene.add(pointLightOne);
+// const pointLightOne = new THREE.PointLight(0xc4c4c4, 1);
+// pointLightOne.position.set( 0, 100, 500 );
+// scene.add(pointLightOne);
 
-// const pointLightTwo = new THREE.PointLight(0xc4c4c4, 5);
+// const pointLightTwo = new THREE.PointLight(0xc4c4c4, 1);
 // pointLightTwo.position.set(500,100,0);
 // scene.add(pointLightTwo);
 
-// const pointLightThree = new THREE.PointLight(0xc4c4c4, 5);
+// const pointLightThree = new THREE.PointLight(0xc4c4c4, 1);
 // pointLightThree.position.set(0,100,-500);
 // scene.add(pointLightThree);
 
-// const pointLightFour = new THREE.PointLight(0xc4c4c4, 5);
+// const pointLightFour = new THREE.PointLight(0xc4c4c4, 1);
 // pointLightFour.position.set(-500,300,500);
 // scene.add(pointLightFour);
 
@@ -79,7 +79,9 @@ loader.load('complete_model.glb', (gltf) => {
 
     console.log(model.children);
 
+    // Make bottle transparent
     model.children[2].material.transparent = true;
+    model.children[2].material.opacity = 0.75;
 
 
     // scene.add(gltf.scene);
