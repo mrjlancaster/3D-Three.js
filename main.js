@@ -4,7 +4,7 @@ import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/Orb
 
 // Scene setup
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xdddddd);
+scene.background = new THREE.Color(0xffffff);
 
 scene.add(new THREE.AxesHelper(500))
 
@@ -23,14 +23,16 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 
 // Lighting
-const ambientLight = new THREE.AmbientLight(0x404040, 1);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
 scene.add(ambientLight);
 
-const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
-scene.add(hemiLight);
+// const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
+// scene.add(hemiLight);
 
-renderer.toneMapping = THREE.CineonToneMapping;
+renderer.toneMapping = THREE.ReinhardToneMapping;
+renderer.toneMappingExposure = 2;
 renderer.shadowMap.enabled = true;
+
 const spotLight = new THREE.SpotLight(0xffa95c, 4);
 spotLight.castShadow = true;
 spotLight.shadow.bias = -0.0001;
@@ -38,14 +40,14 @@ spotLight.shadow.mapSize.width = 1024 * 4;
 spotLight.shadow.mapSize.height = 1024 * 4;
 scene.add(spotLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
 directionalLight.position.set(0, 1, 0);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-// const pointLightOne = new THREE.PointLight(0xc4c4c4, 5);
-// pointLightOne.position.set( 0, 100, 500 );
-// scene.add(pointLightOne);
+const pointLightOne = new THREE.PointLight(0xc4c4c4, 1);
+pointLightOne.position.set( 0, 100, 500 );
+scene.add(pointLightOne);
 
 // const pointLightTwo = new THREE.PointLight(0xc4c4c4, 5);
 // pointLightTwo.position.set(500,100,0);
@@ -76,6 +78,8 @@ loader.load('complete_model.glb', (gltf) => {
     })
 
     console.log(model.children);
+
+    model.children[2].material.transparent = true;
 
 
     // scene.add(gltf.scene);
