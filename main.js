@@ -2,13 +2,13 @@ import * as THREE from 'https://unpkg.com/three/build/three.module.js';
 import { GLTFLoader } from 'https://unpkg.com/three/examples/jsm/loaders/GLTFLoader.js';
 import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/OrbitControls.js';
 
-// Scene setup
+// SCENE SETUP
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 scene.add(new THREE.AxesHelper(500))
 
-// Camera setup
+// CAMERA SETUP
 const fov = 40; // camera proximity
 const aspect = 2;
 const near = 0.1;
@@ -90,12 +90,6 @@ loader.load('complete_model.glb', (gltf) => {
     // scene.add(gltf.scene);
     scene.add(model)
 })
-
-
-// const loader = new THREE.ObjectLoader();
-// loader.load('./Clearex-500-embedded.json', (obj) => {
-//     console.log(obj);
-// })
 
 // Control setting
 const controls = new OrbitControls( camera, renderer.domElement );
