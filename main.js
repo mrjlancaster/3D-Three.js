@@ -87,7 +87,6 @@ loader.load('complete_model.glb', (gltf) => {
     model.children[3].material.transparent = true;
     model.children[3].material.opacity = 0.70;
 
-    // scene.add(gltf.scene);
     scene.add(model)
 })
 
