@@ -1,0 +1,25 @@
+{
+  "name": "3D-Three.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "parcel index.html",
+    "build": "parcel build index.html --public-url ./",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjlancaster/3D-Three.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mrjlancaster/3D-Three.js/issues"
+  },
+  "homepage": "https://github.com/mrjlancaster/3D-Three.js#readme",
+  "dependencies": {
+    "three": "^0.124.0"
+  }
+}
