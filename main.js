@@ -9,7 +9,7 @@ scene.background = new THREE.Color(0xffffff);
 scene.add(new THREE.AxesHelper(500))
 
 // CAMERA SETUP
-const fov = 40; // camera proximity
+const fov = 60; // camera proximity
 const aspect = 2;
 const near = 0.1;
 const far = 1000;
