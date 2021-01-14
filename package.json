@@ -19,7 +19,5 @@
     "url": "https://github.com/mrjlancaster/3D-Three.js/issues"
   },
   "homepage": "https://github.com/mrjlancaster/3D-Three.js#readme",
-  "dependencies": {
-    "three": "^0.124.0"
-  }
+  "dependencies": {}
 }
