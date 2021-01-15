@@ -6,8 +6,6 @@ import { OrbitControls } from 'https://unpkg.com/three/examples/jsm/controls/Orb
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
-scene.add(new THREE.AxesHelper(500))
-
 // CAMERA SETUP
 const fov = 60; // camera proximity
 const aspect = 2;
