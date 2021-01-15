@@ -79,21 +79,26 @@ loader.load('complete_model.glb', (gltf) => {
 
     console.log(model.children);
 
-    // Change bottle transparency
+    // Change bottle transparency and color
     model.children[2].material.transparent = true;
-    model.children[2].material.opacity = 0.65;
+    model.children[2].material.opacity = 0.70;
+    model.children[2].material.color = {
+        b: 5,
+        g: 5,
+        r: 3,
+        isColor: true
+    }
 
-    // Change liquid transparency
+    // Change liquid transparency and color
     model.children[3].material.transparent = true;
-    model.children[3].material.opacity = 0.70; // goes from 0 to 1
-
-    // color obj properties
-    // color = {
-    //     b: 0.4991225004196167,
-    //     g: 0.1666121780872345,
+    model.children[3].material.opacity = 0.65; // goes from 0 to 1
+    // model.children[3].material.color = {
+    //     b: 190,
+    //     g: 71,
     //     r: 0,
     //     isColor: true
     // }
+
 
     scene.add(model)
 })
