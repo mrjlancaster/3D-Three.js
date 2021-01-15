@@ -2,3 +2,6 @@
 
 ### Find documentation on the link below
 https://threejs.org/docs/index.html#manual/en/introduction/Creating-a-scene
+
+### How to use:
+Click on screen and drag the mouse around to rotate object.
