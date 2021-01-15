@@ -7,7 +7,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 // CAMERA SETUP
-const fov = 60; // camera proximity
+const fov = 35; // camera proximity
 const aspect = 2;
 const near = 0.1;
 const far = 1000;
@@ -79,7 +79,9 @@ loader.load('complete_model.glb', (gltf) => {
 
     // Change bottle transparency and color
     model.children[2].material.transparent = true;
-    model.children[2].material.opacity = 0.70;
+    model.children[2].material.opacity = 0.60;
+    model.children[2].material.metalness = 0.85;
+    model.children[2].material.roughness = 0.90;
     model.children[2].material.color = {
         b: 5,
         g: 4,
@@ -89,11 +91,11 @@ loader.load('complete_model.glb', (gltf) => {
 
     // Change liquid transparency and color
     model.children[3].material.transparent = true;
-    model.children[3].material.opacity = 0.80; // goes from 0 to 1
+    model.children[3].material.opacity = 0.85; // goes from 0 to 1
     model.children[3].material.color = {
-        b: 0.02,
-        g: 0.01,
-        r: 0,
+        b: 255,
+        g: 0.08,
+        r: 0.03,
         isColor: true
     }
 
