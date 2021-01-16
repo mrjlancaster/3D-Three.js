@@ -91,30 +91,14 @@ loader.load('complete_model.glb', (gltf) => {
 
     // Change liquid transparency and color
     model.children[3].material.transparent = true;
-
+    // model.children[3].material.depthWrite = false;
     model.children[3].material.opacity = 0.92; // goes from 0 to 1
     model.children[3].material.color = {
         b: 0.5,
         g: 0.08,
-        r: 0.02,
+        r: 0.03,
         isColor: true
     }
-
-
-    //     color: Color
-    // b: 0.4991225004196167
-    // g: 0.1666121780872345
-    // r: 0
-    // isColor: true
-
-    // emissive
-    // emissive: Color
-    // b: 0.3129569888114929
-    // g: 0.10540404170751572
-    // r: 0
-    // isColor: true
-
-
 
     scene.add(model)
 })
