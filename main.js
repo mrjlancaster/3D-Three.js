@@ -91,9 +91,9 @@ loader.load('complete_model.glb', (gltf) => {
 
     // Change liquid transparency and color
     model.children[3].material.transparent = true;
-    model.children[3].material.opacity = 0.80; // goes from 0 to 1
+    model.children[3].material.opacity = 0.60; // goes from 0 to 1
     model.children[3].material.color = {
-        b: 0.07,
+        b: 0.08,
         g: 0.07,
         r: 0.06,
         isColor: true
