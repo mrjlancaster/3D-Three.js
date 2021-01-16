@@ -83,21 +83,38 @@ loader.load('complete_model.glb', (gltf) => {
     model.children[2].material.metalness = 0.85;
     model.children[2].material.roughness = 0.90;
     model.children[2].material.color = {
-        b: 5,
-        g: 4,
-        r: 3,
+        b: 0.45,
+        g: 0.3,
+        r: 0.15,
         isColor: true
     }
 
     // Change liquid transparency and color
     model.children[3].material.transparent = true;
-    model.children[3].material.opacity = 0.50; // goes from 0 to 1
+
+    model.children[3].material.opacity = 0.92; // goes from 0 to 1
     model.children[3].material.color = {
-        b: 0.08,
-        g: 0.07,
-        r: 0.06,
+        b: 0.5,
+        g: 0.08,
+        r: 0.02,
         isColor: true
     }
+
+
+    //     color: Color
+    // b: 0.4991225004196167
+    // g: 0.1666121780872345
+    // r: 0
+    // isColor: true
+
+    // emissive
+    // emissive: Color
+    // b: 0.3129569888114929
+    // g: 0.10540404170751572
+    // r: 0
+    // isColor: true
+
+
 
     scene.add(model)
 })
