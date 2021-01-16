@@ -7,7 +7,7 @@ const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xffffff);
 
 // CAMERA SETUP
-const fov = 35; // camera proximity
+const fov = 60; // camera proximity
 const aspect = 2;
 const near = 0.1;
 const far = 1000;
