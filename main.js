@@ -82,6 +82,8 @@ loader.load('complete_model.glb', (gltf) => {
     model.children[2].material.opacity = 0.60;
     model.children[2].material.metalness = 0.85;
     model.children[2].material.roughness = 0.90;
+    model.children[2].material.refractionRatio = 0;
+    model.children[2].material.reflectivity = 0.40;
     model.children[2].material.color = {
         b: 0.45,
         g: 0.3,
