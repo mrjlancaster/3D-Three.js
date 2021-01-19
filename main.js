@@ -23,7 +23,6 @@ renderer.toneMapping = THREE.ReinhardToneMapping;
 renderer.toneMappingExposure = 2;
 renderer.shadowMap.enabled = true;
 
-console.log(renderer);
 
 // LIGHTS SETTINGS
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
@@ -60,6 +59,7 @@ const pointLightFour = new THREE.PointLight(0xc4c4c4, 1);
 pointLightFour.position.set(-500,300,500);
 scene.add(pointLightFour);
 
+
 // MODEL SETTINGS
 let loader = new GLTFLoader();
 loader.load('complete_model.glb', (gltf) => {
@@ -81,8 +81,6 @@ loader.load('complete_model.glb', (gltf) => {
     // Change bottle transparency and color
     model.children[2].material.transparent = true;
     model.children[2].material.opacity = 0.60;
-    model.children[2].material.metalness = 0.85;
-    model.children[2].material.roughness = 0.90;
     model.children[2].material.refractionRatio = 0;
     model.children[2].material.reflectivity = 0.40;
     model.children[2].material.color = {
