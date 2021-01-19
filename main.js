@@ -19,6 +19,11 @@ const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 // renderer.setClearColor('#ecf0f1'); // background/scene color
 renderer.setPixelRatio(window.devicePixelRatio);
+renderer.toneMapping = THREE.ReinhardToneMapping;
+renderer.toneMappingExposure = 2;
+renderer.shadowMap.enabled = true;
+
+console.log(renderer);
 
 // LIGHTS SETTINGS
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
@@ -26,10 +31,6 @@ scene.add(ambientLight);
 
 // const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
 // scene.add(hemiLight);
-
-renderer.toneMapping = THREE.ReinhardToneMapping;
-renderer.toneMappingExposure = 2;
-renderer.shadowMap.enabled = true;
 
 const spotLight = new THREE.SpotLight(0xffa95c, 4);
 spotLight.castShadow = true;
