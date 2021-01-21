@@ -81,8 +81,6 @@ loader.load('complete_model.glb', (gltf) => {
     // Change bottle transparency and color
     model.children[2].material.transparent = true;
     model.children[2].material.opacity = 0.60;
-    model.children[2].material.refractionRatio = 0;
-    model.children[2].material.reflectivity = 0.40;
     model.children[2].material.color = {
         b: 0.45,
         g: 0.3,
