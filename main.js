@@ -62,7 +62,7 @@ scene.add(pointLightFour);
 
 // MODEL SETTINGS
 let loader = new GLTFLoader();
-loader.load('complete_model.glb', (gltf) => {
+loader.load('new-model.glb', (gltf) => {
     const model = gltf.scene;
 
     // Positioning model on screen
