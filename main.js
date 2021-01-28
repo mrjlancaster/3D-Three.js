@@ -62,7 +62,7 @@ scene.add(pointLightFour);
 
 // MODEL SETTINGS
 let loader = new GLTFLoader();
-loader.load('complete_model.glb', (gltf) => {
+loader.load('draft-three.glb', (gltf) => {
     const model = gltf.scene;
 
     // Positioning model on screen
@@ -78,10 +78,11 @@ loader.load('complete_model.glb', (gltf) => {
 
     console.log(model.children);
 
+
     // Change bottle transparency and color
-    model.children[2].material.transparent = true;
-    model.children[2].material.opacity = 0.60;
-    model.children[2].material.color = {
+    model.children[4].material.transparent = true;
+    model.children[4].material.opacity = 0.80;
+    model.children[4].material.color = {
         b: 0.45,
         g: 0.3,
         r: 0.15,
@@ -89,10 +90,10 @@ loader.load('complete_model.glb', (gltf) => {
     }
 
     // Change liquid transparency and color
-    model.children[3].material.transparent = true;
-    model.children[3].material.depthWrite = false;
-    model.children[3].material.opacity = 0.92; // goes from 0 to 1
-    model.children[3].material.color = {
+    model.children[2].material.transparent = true;
+    model.children[2].material.depthWrite = false;
+    model.children[2].material.opacity = 0.92; // goes from 0 to 1
+    model.children[2].material.color = {
         b: 0.5,
         g: 0.08,
         r: 0.03,
