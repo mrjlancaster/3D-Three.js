@@ -17,7 +17,6 @@ camera.position.set(0, 2, 4); // x, y, z
 // Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-// renderer.setClearColor('#ecf0f1'); // background/scene color
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.toneMapping = THREE.ReinhardToneMapping;
 renderer.toneMappingExposure = 2;
@@ -27,9 +26,6 @@ renderer.shadowMap.enabled = true;
 // LIGHTS SETTINGS
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.5);
 scene.add(ambientLight);
-
-// const hemiLight = new THREE.HemisphereLight(0xffeeb1, 0x080820, 4);
-// scene.add(hemiLight);
 
 const spotLight = new THREE.SpotLight(0xffa95c, 4);
 spotLight.castShadow = true;
@@ -75,9 +71,6 @@ loader.load('model-two.glb', (gltf) => {
             if (n.material.map) n.material.map.anisotropy = 16;
         }
     })
-
-    console.log(model.children);
-
 
     // Change bottle transparency and color
     model.children[3].material.transparent = true;
