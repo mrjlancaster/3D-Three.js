@@ -81,7 +81,7 @@ loader.load('draft-three.glb', (gltf) => {
 
     // Change bottle transparency and color
     model.children[4].material.transparent = true;
-    model.children[4].material.opacity = 0.80;
+    model.children[4].material.opacity = 0.82;
     model.children[4].material.color = {
         b: 0.45,
         g: 0.3,
@@ -94,7 +94,7 @@ loader.load('draft-three.glb', (gltf) => {
     model.children[2].material.depthWrite = false;
     model.children[2].material.opacity = 0.92; // goes from 0 to 1
     model.children[2].material.color = {
-        b: 0.5,
+        b: 1,
         g: 0.08,
         r: 0.03,
         isColor: true
