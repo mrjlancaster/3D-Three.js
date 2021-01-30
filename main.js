@@ -12,7 +12,7 @@ const aspect = 2;
 const near = 0.1;
 const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0, 2, 28); // x, y, z
+camera.position.set(3, 2, 2); // x, y, z
  
 // Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -58,11 +58,11 @@ scene.add(pointLightFour);
 
 // MODEL SETTINGS
 let loader = new GLTFLoader();
-loader.load('test.glb', (gltf) => {
+loader.load('./3d-model/scene.gltf', (gltf) => {
     const model = gltf.scene;
 
     // Positioning model on screen
-    model.position.set(0, 1.5, 0); // x, y, z
+    model.position.set(0, 0.5, 0); // x, y, z
 
     model.traverse(n => {
         if (n.isMesh) {
