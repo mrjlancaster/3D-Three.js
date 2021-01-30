@@ -12,7 +12,7 @@ const aspect = 2;
 const near = 0.1;
 const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0, 2, 4); // x, y, z
+camera.position.set(0, 2, 28); // x, y, z
  
 // Renderer setup
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -58,11 +58,11 @@ scene.add(pointLightFour);
 
 // MODEL SETTINGS
 let loader = new GLTFLoader();
-loader.load('model-two.glb', (gltf) => {
+loader.load('test.glb', (gltf) => {
     const model = gltf.scene;
 
     // Positioning model on screen
-    model.position.set(0, -1, 0); // x, y, z
+    model.position.set(0, 1.5, 0); // x, y, z
 
     model.traverse(n => {
         if (n.isMesh) {
@@ -71,27 +71,6 @@ loader.load('model-two.glb', (gltf) => {
             if (n.material.map) n.material.map.anisotropy = 16;
         }
     })
-
-    // Change bottle transparency and color
-    model.children[3].material.transparent = true;
-    model.children[3].material.opacity = 0.70;
-    model.children[3].material.color = {
-        b: 0.40,
-        g: 0.3,
-        r: 0.15,
-        isColor: true
-    }
-
-    // Change liquid transparency and color
-    model.children[2].material.transparent = true;
-    model.children[2].material.depthWrite = false;
-    model.children[2].material.opacity = 0.92; // goes from 0 to 1
-    model.children[2].material.color = {
-        b: 1,
-        g: 0.08,
-        r: 0.03,
-        isColor: true
-    }
 
     scene.add(model)
 })
